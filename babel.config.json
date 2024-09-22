@@ -1,0 +1,21 @@
+{
+    "presets": [
+        // позволяет использовать новейшие функции JavaScript.
+        "@babel/preset-env", // ["@babel/env", { "targets": { "node": "current" } }],
+        "@babel/preset-typescript", // позволяет Babel преобразовывать код TS в JS.
+        [
+            "@babel/preset-react",
+            {
+                "runtime": "automatic"
+            }
+        ]
+    ],
+    "plugins": [
+        "@babel/plugin-transform-class-properties",
+        // или "@babel/plugin-proposal-class-properties"
+        "@babel/plugin-transform-object-rest-spread",
+        // или "@babel/plugin-proposal-object-rest-spread"
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-transform-runtime"
+    ]
+}
