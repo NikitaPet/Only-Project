@@ -1,0 +1,15 @@
+@import '@global-styles-assets/all.scss';
+
+@media #{$desktop} {
+  .wrapper {
+    padding: 0;
+
+    &::before {
+      content: unset;
+    }
+  }
+
+  .slider {
+    min-height: 135px;
+  }
+}

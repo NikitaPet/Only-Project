@@ -56,7 +56,8 @@ export default {
                             modules: {
                                 namedExport: false,
                                 exportLocalsConvention: 'as-is',
-                                localIdentName: '[local]__[hash:base64:6]',
+                                localIdentName:
+                                    '[name]__[local]__[hash:base64:6]',
                             },
                         },
                     },

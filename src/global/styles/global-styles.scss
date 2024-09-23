@@ -4,40 +4,16 @@
 @import './components/all.scss';
 @import './fonts/all.scss';
 
-$custom-pointer: pointer;
 $body-color: $light-color;
+$custom-pointer: pointer;
 
 html {
   * {
-    box-sizing: border-box;
 
     &::before,
     &::after {
       user-select: none;
-    }
-
-    & {
-      &::-webkit-scrollbar {
-        height: $scrollbar-width;
-        width: $scrollbar-width;
-      }
-
-      &::-webkit-scrollbar-track {
-        background: transparent
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: $blue-color;
-
-        @include mouse-hover {
-          background-color: $blue-color
-        }
-      }
-
-      @-moz-document url-prefix() {
-        scrollbar-color: $blue-color transparent;
-        scrollbar-width: thin;
-      }
+      pointer-events: none;
     }
   }
 }
@@ -52,18 +28,37 @@ body {
   overflow-x: hidden;
 
   background-color: $body-color;
-  font-family: $fonts;
+  font-family: "Bebas Neue", sans-serif;
   line-height: normal;
+
+  & {
+    &::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $blue-color;
+
+      @include mouse-hover {
+        background-color: $blue-color
+      }
+    }
+
+    @include moz-style {
+      scrollbar-color: $blue-color transparent;
+      scrollbar-width: thin;
+    }
+  }
 }
 
 div {
   width: 100%;
-}
-
-input,
-select,
-textarea {
-  outline: none;
+  box-sizing: border-box;
 }
 
 button {

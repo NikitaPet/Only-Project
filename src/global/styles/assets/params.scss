@@ -1,15 +1,4 @@
 @import './breakpoints.scss';
 
-// padding
-
 $main-container-width: min(calc(100dvw), $desktop-start);
 $module-base-padding: calc((100% - $main-container-width)/2);
-
-$mobile-extra-padding: 24px;
-$tablet-extra-padding: 48px;
-$desktop-extra-padding: 64px;
-
-// scrollbar
-
-$scrollbar-width: 4px;
-$scrollbar-height: 4px;

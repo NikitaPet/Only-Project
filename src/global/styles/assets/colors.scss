@@ -1,8 +1,12 @@
-$light-color: #fff;
-$dark-color: #42567A;
+$light-color: #f4f5f9;
+$dark-color: #42567a;
+$grey-color: #c7cdd9;
 
-$blue-color: #3877EE;
-$red-color: #EF5DA8;
+$blue-color: #3877ee;
+$red-color: #ef5da8;
+$violet-color: #5d5fef;
+
+$dark-opacity-color: rgb(66, 86, 122, 0.1);
 
 :export {
     dark-color: $dark-color;

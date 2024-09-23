@@ -1,0 +1,17 @@
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+
+.swiper {
+    .swiper-wrapper {
+        display: flex;
+        align-items: stretch;
+
+        .swiper-slide {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    }
+}
