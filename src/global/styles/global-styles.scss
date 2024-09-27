@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  height: 100dvh;
+  min-height: 100dvh;
   min-width: $min-width-device;
   max-width: $max-width-device;
   position: relative;
@@ -53,6 +53,11 @@ body {
       scrollbar-color: $blue-color transparent;
       scrollbar-width: thin;
     }
+  }
+
+  #root {
+    height: 100dvh;
+    min-height: fit-content;
   }
 }
 

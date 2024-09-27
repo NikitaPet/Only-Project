@@ -4,14 +4,21 @@
 @media #{$desktop} {
   .wrapper {
     position: relative;
-    height: fit-content;
-    padding: 0 $module-base-padding
+    height: 100%;
+    min-height: fit-content;
+
+    padding: 0 $module-base-padding;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .content {
     height: auto;
+    flex-grow: 1;
+
     padding: 0;
-    padding-bottom: 104px;
+    padding-bottom: 24px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -28,13 +35,14 @@
 
     .grid {
       height: 100%;
+      width: 100%;
 
       &::before {
         content: '';
         position: absolute;
         left: 50%;
         height: 100%;
-        border-left: 1px solid $dark-opacity-color;
+        border-left: 1px solid $bg-grid-color;
       }
 
       &::after {
@@ -42,7 +50,7 @@
         position: absolute;
         top: $carousel-center-top;
         width: 100%;
-        border-top: 1px solid $dark-opacity-color;
+        border-top: 1px solid $bg-grid-color;
       }
     }
 
@@ -50,7 +58,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border: 1px solid $dark-opacity-color;
+      border: 1px solid $bg-grid-color;
     }
   }
 
@@ -79,31 +87,27 @@
     }
   }
 
-  .dates {
+  .branch-interval {
     position: absolute;
     top: calc($carousel-center-top - ($carousel-circle-diameter/2));
     height: $carousel-circle-diameter;
     padding: 0;
 
-    right: 250px;
-    width: auto;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: center;
-    // align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 100px;
 
     .start-date {
-      width: auto;
       color: $violet-color;
     }
 
     .end-date {
-      width: auto;
       color: $red-color;
     }
 
-    .date-text {
+    .date {
       font-weight: 700;
       font-size: 200px;
       line-height: 160px;

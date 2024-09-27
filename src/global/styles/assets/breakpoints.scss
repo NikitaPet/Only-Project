@@ -1,17 +1,26 @@
+$min-width-device-px: 320;
+$max-width-device-px: 5920;
+
+$min-width-device: #{$min-width-device-px + "px"};
+$max-width-device: #{$max-width-device-px + "px"};
+
+// 
+
+$mobile-start-px: $min-width-device-px;
+$desktop-start-px: 1440;
+
+$mobile-start: #{ $mobile-start-px + "px"};
+$mobile-end: #{$mobile-start-px + "px"};
+$desktop-start: #{$desktop-start-px + "px"};
+
+:export {
+    mobile-start-px: $mobile-start-px;
+    desktop-start-px: $desktop-start-px;
+}
+
+// 
+
 $screen: "only screen";
-
-$min-width-device: 320px;
-$max-width-device: 5920px;
-
-// 
-
-$mobile-start: $min-width-device;
-$mobile-end: 1440px;
-
-$desktop-start: $mobile-end;
-$desktop-end: $max-width-device;
-
-// 
 
 $mobile: "#{$screen} and ( min-width: #{$mobile-start})";
 $non-mobile-320: "#{$screen} and (max-width: #{$mobile-start})";
@@ -19,9 +28,6 @@ $mobile-only: "#{$mobile} and (max-width: #{$mobile-end})";
 
 $desktop: "#{$screen} and (min-width: #{$desktop-start})";
 $non-desktop-1440: "#{$screen} and (max-width: #{$desktop-start})";
-$desktop-only: "#{$desktop} and (max-width: #{$desktop-end})";
-
-// 
 
 :export {
     mobile: $mobile;

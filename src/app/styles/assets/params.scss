@@ -1,5 +1,36 @@
-$mobile-app-content-padding: 20px;
-$desktop-app-content-padding: 80px;
+$mobile-app-content-padding-px: 20;
+$desktop-app-content-padding-px: 80;
 
-$carousel-circle-diameter: 530px;
-$carousel-center-top: 480px;
+$mobile-app-content-padding: #{$mobile-app-content-padding-px + "px"};
+$desktop-app-content-padding: #{$desktop-app-content-padding-px + "px"};
+
+:export {
+    mobile-app-content-padding-px: $mobile-app-content-padding-px;
+    desktop-app-content-padding-px: $desktop-app-content-padding-px;
+}
+
+// 
+
+$carousel-circle-diameter-px: 530;
+$carousel-center-top-px: 480;
+
+$carousel-circle-diameter: #{$carousel-circle-diameter-px + "px"};
+$carousel-center-top: #{$carousel-center-top-px + "px"};
+
+:export {
+    carousel-circle-diameter-px: $carousel-circle-diameter;
+    carousel-center-top-px: $carousel-center-top;
+}
+
+// 
+
+$carousel-turning-duration-ms: 1000;
+$carousel-turning-delay-ms: 200;
+
+$carousel-turning-duration: #{$carousel-turning-duration-ms + "ms"};
+$carousel-turning-delay: #{$carousel-turning-delay-ms + "ms"};
+
+:export {
+    carousel-turning-duration-ms: $carousel-turning-duration-ms;
+    carousel-turning-delay-ms: $carousel-turning-delay-ms;
+}

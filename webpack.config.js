@@ -10,6 +10,8 @@ import path from 'path'
 
 const { HotModuleReplacementPlugin, DefinePlugin } = webpack
 const env = dotenv?.config()
+
+const cssModuleIdentName = '[name]__[local]__[hash:base64:6]'
 const favicon = 'public/favicon.png'
 
 export default {
@@ -27,7 +29,6 @@ export default {
         new ForkTsCheckerWebpackPlugin({ async: false }),
         new DotenvWebpack({ ignoreStub: true }),
         new FaviconsWebpackPlugin({ logo: favicon }),
-        // new FaviconsWebpackPlugin({ logo: favicon, mode: 'light' }),
         new DefinePlugin({ 'process.env': JSON.stringify(env?.parsed) }),
         new HotModuleReplacementPlugin(),
     ],
@@ -47,7 +48,19 @@ export default {
             },
 
             {
-                test: /\.(scss|sass|css)$/,
+                test: /^(?!.*?\.module).*\.(scss|sass|css)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: { api: 'modern-compiler' },
+                    },
+                ],
+            },
+
+            {
+                test: /\.module\.(scss|sass|css)$/,
                 use: [
                     'style-loader',
                     {
@@ -56,17 +69,14 @@ export default {
                             modules: {
                                 namedExport: false,
                                 exportLocalsConvention: 'as-is',
-                                localIdentName:
-                                    '[name]__[local]__[hash:base64:6]',
+                                localIdentName: cssModuleIdentName,
                             },
                         },
                     },
 
                     {
                         loader: 'sass-loader',
-                        options: {
-                            api: 'modern-compiler',
-                        },
+                        options: { api: 'modern-compiler' },
                     },
                 ],
             },

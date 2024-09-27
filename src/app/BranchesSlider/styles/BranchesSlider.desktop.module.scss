@@ -1,0 +1,49 @@
+@import '@global-styles-assets/all.scss';
+@import '@app/styles/assets/all.scss';
+
+@media #{$desktop} {
+  .wrapper {
+    position: relative;
+    padding: 0;
+    padding-top: calc($carousel-center-top - ($carousel-circle-diameter/2));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 96px;
+  }
+
+  .branch-slide {
+    .slide-content {
+      padding-bottom: 20px;
+
+      .branch-title {
+        display: none;
+      }
+    }
+  }
+
+  .swiper-control {
+    $height: 90px;
+    $swiper-control-top-from-carousel-center: 217px;
+
+    position: absolute;
+    z-index: 10;
+    top: calc($carousel-center-top + $swiper-control-top-from-carousel-center);
+    padding: 0 $desktop-app-content-padding;
+    height: $height;
+    display: flex;
+    flex-direction: column;
+
+    .swiper-control-buttons {
+      gap: 20px;
+    }
+
+    .swiper-control-button {
+      height: 50px;
+
+      .arrow {
+        height: 20px;
+      }
+    }
+  }
+}
