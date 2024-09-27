@@ -1,0 +1,13 @@
+@mixin mouse-hover {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin moz-style {
+    @-moz-document url-prefix() {
+        @content;
+    }
+}

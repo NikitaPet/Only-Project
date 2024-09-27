@@ -1,0 +1,163 @@
+@import '@global-styles-assets/all.scss';
+@import '@app/styles/assets/all.scss';
+
+$carousel-circle-point-diameter: 56px;
+
+@media #{$desktop} {
+  .wrapper {
+    position: relative;
+    display: block;
+    height: calc($carousel-circle-diameter);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+
+  }
+
+  .circle {
+    position: relative;
+    height: $carousel-circle-diameter;
+    width: auto;
+    aspect-ratio: 1;
+    border-radius: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+
+      border: 1px solid $bg-grid-color;
+      border-radius: 100%;
+    }
+
+
+  }
+
+  .item-wrapper {
+    position: absolute;
+    bottom: calc($carousel-circle-diameter/2);
+    left: calc($carousel-circle-diameter/2);
+    height: calc($carousel-circle-diameter/2);
+    width: auto;
+    aspect-ratio: 1;
+
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: $carousel-turning-duration;
+    transition-delay: $carousel-turning-delay;
+    transform-origin: bottom left;
+
+    pointer-events: none;
+
+    .item-balancer {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      height: 100%;
+      width: 100%;
+
+      transition-property: transform;
+      transition-timing-function: ease-in-out;
+      transition-duration: $carousel-turning-duration;
+      transition-delay: $carousel-turning-delay;
+      transform-origin: bottom left;
+    }
+
+    .item-content {
+      position: absolute;
+      left: calc((-1) *$carousel-circle-point-diameter/2);
+      bottom: calc((-1) *$carousel-circle-point-diameter/2);
+      height: $carousel-circle-point-diameter;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      color: $dark-color;
+
+      pointer-events: auto;
+    }
+  }
+
+  .carousel-circle-point {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1;
+    border-radius: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &.inactive {
+      .point-number {
+        height: 6px;
+        background-color: $dark-color;
+      }
+    }
+
+    @include mouse-hover {
+      .point-number {
+        height: 100%;
+        background-color: $light-color;
+      }
+    }
+
+    .point-number {
+      height: 100%;
+      width: auto;
+      aspect-ratio: 1;
+      border-radius: 100%;
+      box-sizing: content-box;
+
+      border: 1px solid rgba(48, 62, 88, 0.5);
+      background-color: $light-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      transition: height 300ms, background-color 300ms;
+      cursor: pointer;
+      font-family: 'PT Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
+  .branch-title {
+    $transition-duration: 300ms;
+    $transition-delay-ms: calc($carousel-turning-delay-ms + $carousel-turning-duration-ms);
+    $transition-delay: #{$transition-delay-ms+"ms"};
+
+    display: inline-block;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+
+    transition-property: opacity, visibility;
+    transition-timing-function: ease-in-out;
+    transition-duration: $transition-duration;
+    transition-delay: $transition-delay;
+
+    cursor: default;
+
+    &.inactive {
+      opacity: 0;
+      visibility: hidden;
+      transition-delay: 0ms;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+@import './resetting.scss';
+
+@import './assets/all.scss';
+@import './components/all.scss';
+@import './fonts/all.scss';
+
+$body-color: $light-color;
+$custom-pointer: pointer;
+
+html {
+  * {
+
+    &::before,
+    &::after {
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+}
+
+body {
+  min-height: 100dvh;
+  min-width: $min-width-device;
+  max-width: $max-width-device;
+  position: relative;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background-color: $body-color;
+  font-family: "Bebas Neue", sans-serif;
+  line-height: normal;
+
+  & {
+    &::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $blue-color;
+
+      @include mouse-hover {
+        background-color: $blue-color
+      }
+    }
+
+    @include moz-style {
+      scrollbar-color: $blue-color transparent;
+      scrollbar-width: thin;
+    }
+  }
+
+  #root {
+    height: 100dvh;
+    min-height: fit-content;
+  }
+}
+
+div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: $custom-pointer;
+  user-select: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}

@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "@/*": ["*"],
+            "@app/*": ["app/*"],
+
+            "@global/*": ["global/*"],
+            "@global-hooks/*": ["global/hooks/*"],
+            "@global-styles-assets/*": ["global/styles/assets/*"],
+
+            "@tools/*": ["tools/*"],
+            "@animation/*": ["tools/animation/*"]
+        },
+        "plugins": [
+            {
+                "name": "typescript-plugin-css-modules"
+            }
+        ],
+        "jsx": "react-jsx",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": ["src/**/*"]
+}

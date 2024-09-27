@@ -1,0 +1,118 @@
+@import '@global-styles-assets/all.scss';
+@import '@app/styles/assets/all.scss';
+
+@media #{$desktop} {
+  .wrapper {
+    position: relative;
+    height: 100%;
+    min-height: fit-content;
+
+    padding: 0 $module-base-padding;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .content {
+    height: auto;
+    flex-grow: 1;
+
+    padding: 0;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 56px;
+  }
+
+  .bg {
+    position: absolute;
+    inset: 0 $module-base-padding;
+    z-index: -1;
+    width: auto;
+    height: 100%;
+    display: block;
+
+    .grid {
+      height: 100%;
+      width: 100%;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        height: 100%;
+        border-left: 1px solid $bg-grid-color;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: $carousel-center-top;
+        width: 100%;
+        border-top: 1px solid $bg-grid-color;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid $bg-grid-color;
+    }
+  }
+
+  .app-title {
+    $linear-gradient-width: 5px;
+    $linear-gradient-color: linear-gradient(0deg, $red-color 0%, $blue-color 100%);
+
+    position: absolute;
+    top: 170px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .title-text {
+      padding-left: calc($desktop-app-content-padding - $linear-gradient-width);
+      font-weight: 700;
+      font-size: 56px;
+      line-height: 120%;
+    }
+
+    &::before {
+      content: '';
+      height: 120px;
+      width: $linear-gradient-width;
+      background: $linear-gradient-color;
+    }
+  }
+
+  .branch-interval {
+    position: absolute;
+    top: calc($carousel-center-top - ($carousel-circle-diameter/2));
+    height: $carousel-circle-diameter;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+    .start-date {
+      color: $violet-color;
+    }
+
+    .end-date {
+      color: $red-color;
+    }
+
+    .date {
+      font-weight: 700;
+      font-size: 200px;
+      line-height: 160px;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+  }
+}

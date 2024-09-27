@@ -1,0 +1,102 @@
+@import '@global-styles-assets/all.scss';
+@import '@app/styles/assets/all.scss';
+
+.wrapper {
+  position: relative;
+  display: block;
+}
+
+.branch-slide {
+  .slide-content {
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .branch-title {
+      display: inline-block;
+      padding: 0 $mobile-app-content-padding;
+      color: $dark-color;
+      font-family: 'PT Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 120%;
+    }
+  }
+}
+
+.swiper-control {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+
+  padding: 0 $mobile-app-content-padding;
+  width: auto;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $dark-color;
+
+  .page-number-text {
+    display: inline-block;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .swiper-control-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .swiper-control-button {
+    height: 25px;
+    width: auto;
+    aspect-ratio: 1;
+    border-radius: 100%;
+
+    background-color: $light-color;
+    border: 2px solid #{$dark-color+"80"};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+
+    @include mouse-hover {
+      filter: brightness(1.2);
+
+      &.inactive {
+        filter: unset;
+      }
+    }
+
+    &.inactive {
+      opacity: 50%;
+      cursor: not-allowed;
+    }
+
+    .arrow {
+      height: 14px;
+      width: auto;
+      margin-right: 2px;
+      aspect-ratio: 1;
+      fill: $dark-color;
+      stroke: $dark-color;
+    }
+
+    &.left {
+      transform: rotate(0deg);
+    }
+
+    &.right {
+      transform: rotate(180deg);
+    }
+  }
+}
